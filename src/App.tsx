@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 
 interface AppProps {
@@ -11,7 +11,7 @@ const App = (props: AppProps) => (
     <h1>
       Hello from {props.compiler} and {props.framework}!
     </h1>
-    <p>My first time with React & Typescript</p>
+    <p>My first time with React & Typescript!!</p>
   </div>
 );
 

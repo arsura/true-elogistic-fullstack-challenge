@@ -35,10 +35,6 @@ module.exports = {
       template: './public/index.html'
     })
   ],
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM'
-  },
   devtool: 'source-map',
   devServer: {
     open: true,
