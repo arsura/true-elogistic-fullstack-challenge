@@ -4,13 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './src/client/index',
   resolve: {
     extensions: ['.js', '.ts', '.tsx']
   },
   output: {
     filename: 'bundle.js',
-    path: resolve(__dirname, 'dist')
+    path: resolve(__dirname, 'dist', 'client')
   },
   module: {
     rules: [
