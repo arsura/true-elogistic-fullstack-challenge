@@ -4,7 +4,6 @@
   "description": "",
   "main": "webpack.config.js",
   "author": "Siwakorn",
-  "license": "ISC",
   "scripts": {
     "build": "concurrently \"webpack --mode production\" \"tsc -p src/server\"",
     "prod": "NODE_ENV=production node dist/server/index.js",
@@ -33,8 +32,11 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.1.3",
     "express": "^4.17.1",
+    "history": "^4.10.1",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2"
   }
 }

@@ -1,9 +1,16 @@
 const express = require('express');
 const path = require('path');
 
-const port = process.env.SERVER_PORT || 3000;
+const port = process.env.SERVER_PORT || 8081;
 
 const app = express();
+
+app.get('/api', (req: any, res: any) => {
+  res.status(200).json({
+    status: 200,
+    health: 'OK'
+  });
+});
 
 app.get('/api/ping', (req: any, res: any) => {
   res.send('pong');

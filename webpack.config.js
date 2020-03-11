@@ -38,6 +38,13 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     open: true,
-    hot: true
+    hot: true,
+    historyApiFallback: true,
+    host: '0.0.0.0',
+    port: 3000,
+    contentBase: resolve(__dirname, 'public'),
+    proxy: {
+      '/api': 'http://localhost:8081'
+    }
   }
 };
