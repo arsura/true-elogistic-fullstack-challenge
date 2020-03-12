@@ -6,7 +6,7 @@
   "author": "Siwakorn",
   "scripts": {
     "build": "concurrently \"webpack --mode production\" \"tsc -p src/server\"",
-    "prod": "NODE_ENV=production node dist/server/index.js",
+    "start": "NODE_ENV=production node dist/server/index.js",
     "dev": "concurrently \"webpack-dev-server --mode development\" \"nodemon\""
   },
   "devDependencies": {

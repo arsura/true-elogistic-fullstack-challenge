@@ -62,7 +62,7 @@ module.exports = {
     port: 3000,
     contentBase: resolve(__dirname, 'public'),
     proxy: {
-      '/api': 'http://localhost:8081'
+      '/api': 'http://localhost:8080'
     }
   }
 };

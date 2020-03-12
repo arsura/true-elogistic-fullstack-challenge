@@ -1,20 +1,12 @@
-import Express from 'express';
-import Path from 'path'
+import express = require('express');
+import path = require('path');
+import router = require('./routes');
 
-const port = process.env.SERVER_PORT || 8081;
+const port = process.env.SERVER_PORT || 8080;
 
 const app = express();
 
-app.get('/api', (req: any, res: any) => {
-  res.status(200).json({
-    status: 200,
-    health: 'OK'
-  });
-});
-
-app.get('/api/ping', (req: any, res: any) => {
-  res.send('pong');
-});
+router(app);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(process.env.PWD + '/dist/client')));
