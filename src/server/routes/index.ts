@@ -1,9 +1,4 @@
-// [GET]       /api/product
-// [PUT]       /api/product/update
-// [POST]      /api/product/create
-// [DELETE]    /api/product/delete
-
-import express = require('express');
+import express from 'express';
 
 function router(app: express.Express) {
   app.get('/api', (req: any, res: any) => {
@@ -22,4 +17,4 @@ function router(app: express.Express) {
   });
 }
 
-export = router;
+export default router;

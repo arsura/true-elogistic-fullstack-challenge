@@ -1,6 +1,6 @@
-import express = require('express');
-import path = require('path');
-import router = require('./routes');
+import express from 'express';
+import path from 'path';
+import router from './routes';
 
 const port = process.env.SERVER_PORT || 8080;
 
