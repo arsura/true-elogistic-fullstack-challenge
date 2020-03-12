@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import { PieChartOutlined } from '@ant-design/icons';
 import './default.css';
 
-const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
-type Props = {
-  children: React.ReactNode;
+interface Props {
+  children: React.ReactNode
 };
 
 export default function(props: Props) {

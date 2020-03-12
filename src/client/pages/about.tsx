@@ -4,10 +4,8 @@ import DefaultLayout from '../layouts/default';
 
 export default function() {
   return (
-    <div className="container">
-      <DefaultLayout>
-        <About />
-      </DefaultLayout>
-    </div>
+    <DefaultLayout>
+      <About />
+    </DefaultLayout>
   );
 }

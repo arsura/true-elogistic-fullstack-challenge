@@ -1,5 +1,5 @@
-const express = require('express');
-const path = require('path');
+import Express from 'express';
+import Path from 'path'
 
 const port = process.env.SERVER_PORT || 8081;
 
