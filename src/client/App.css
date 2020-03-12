@@ -1,0 +1,14 @@
+@import '~antd/dist/antd.css';
+
+.container--center {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.button {
+  margin: 0.5em;
+}

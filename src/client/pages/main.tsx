@@ -1,17 +1,19 @@
 import React from 'react';
+import { Button } from 'antd';
 
-interface AppProps {
-  compiler: string;
-  framework: string;
-}
-
-export default function(props: AppProps) {
+export default function() {
   return (
-    <div>
-      <h1>
-        Hello from {props.compiler} and {props.framework}!
-      </h1>
-      <p>My first time with React & Typescript!!</p>
+    <div className="container--center">
+      <div>
+        <h1>Hello World!</h1>
+        <p>My first time with React & Typescript!!</p>
+        <Button className="button" type="primary">
+          OK
+        </Button>
+        <Button className="button" type="default">
+          Cancel
+        </Button>
+      </div>
     </div>
   );
 }

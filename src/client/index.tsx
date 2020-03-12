@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { hot } from 'react-hot-loader/root';
-import Router from './routes';
-
-const App = hot(Router);
+import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
