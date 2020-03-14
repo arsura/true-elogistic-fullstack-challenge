@@ -21,4 +21,4 @@ RUN apk add --no-cache --virtual .gyp \
 # Bundle app source
 COPY . .
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start:prod" ]
