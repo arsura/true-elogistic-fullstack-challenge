@@ -8,12 +8,14 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN apk add --no-cache --virtual .gyp \
-    python \
-    make \
-    g++ \
-    && npm install \
-    && apk del .gyp
+# RUN apk add --no-cache --virtual .gyp \
+#     python \
+#     make \
+#     g++ \
+#     && npm install \
+#     && apk del .gyp
+
+RUN yarn install
 
 # If you are building your code for production
 # RUN npm ci --only=production
@@ -21,4 +23,4 @@ RUN apk add --no-cache --virtual .gyp \
 # Bundle app source
 COPY . .
 
-CMD [ "npm", "run", "start:prod" ]
+CMD [ "yarn", "start:prod" ]

@@ -1,0 +1,3 @@
+CREATE DATABASE elogistic;
+CREATE USER siwakorn;
+GRANT ALL PRIVILEGES ON DATABASE elogistic TO siwakorn;

@@ -3,8 +3,8 @@ version: '3.7'
 services:
   web:
     build: .
-    command: npm run start:dev
     container_name: true-elogistic-web
+    entrypoint: ['/bin/sh', './entrypoint.sh']
     ports:
       - '3000:3000'
     volumes:
@@ -18,7 +18,8 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: example
-      POSTGRES_DB: elogistic
+    volumes:
+      - ./src/server/db/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - logistic
 

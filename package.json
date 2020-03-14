@@ -7,7 +7,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start:prod": "npm run build && NODE_ENV=production node src/server/index.js",
-    "start:dev": "concurrently \"webpack-dev-server --mode development\" \"nodemon\""
+    "start:dev": "concurrently \"webpack-dev-server --mode development\" \"nodemon\"",
+    "db:migrate": "npx sequelize-cli db:migrate"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
@@ -34,9 +35,12 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "history": "^4.10.1",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
-    "sequelize": "^5.21.5"
+    "sequelize": "^5.21.5",
+    "sequelize-cli": "^5.5.1"
   }
 }
