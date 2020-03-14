@@ -1,5 +1,5 @@
 {
   "watch": ["src/server/"],
   "ignore": ["src/server/**/*.spec.js"],
-  "exec": "node NODE_ENV=development src/server/index.js"
+  "exec": "NODE_ENV=development node src/server/index.js"
 }

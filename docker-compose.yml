@@ -4,7 +4,25 @@ services:
   web:
     build: .
     command: npm run start:dev
+    container_name: true-elogistic-web
     ports:
       - '3000:3000'
     volumes:
       - './src:/usr/src/app/src'
+    networks:
+      - logistic
+
+  db:
+    image: postgres:12.2-alpine
+    container_name: true-elogistic-db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: elogistic
+    networks:
+      - logistic
+
+networks:
+  logistic:
+    external: true
+    name: logistic
