@@ -2,7 +2,6 @@
     "watch": [
       "src/server/"
     ],
-    "ext": "ts",
-    "ignore": ["src/server/**/*.spec.ts"],
-    "exec": "ts-node --project src/server/tsconfig.json src/server/index.ts"
+    "ignore": ["src/server/**/*.spec.js"],
+    "exec": "node src/server/index.js"
   }

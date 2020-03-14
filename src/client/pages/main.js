@@ -6,7 +6,7 @@ export default function() {
     <div className="container--center">
       <div>
         <h1>Hello World</h1>
-        <p>My first time with React & Typescript</p>
+        <p>Back to JS</p>
         <Button className="button" type="primary">
           OK
         </Button>

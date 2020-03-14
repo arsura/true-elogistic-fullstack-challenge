@@ -6,11 +6,7 @@ import './default.css';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-interface Props {
-  children: React.ReactNode
-};
-
-export default function(props: Props) {
+export default function(props) {
   return (
     <Layout>
       <Header className="header">
