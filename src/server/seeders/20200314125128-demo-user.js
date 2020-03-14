@@ -13,12 +13,12 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert(
-      'User',
+      'Users',
       [
         {
-          firstName: 'John',
-          lastName: 'Doe',
-          email: 'demo@demo.com',
+          firstName: 'Siwakorn',
+          lastName: 'Ruenrit',
+          email: 'siwakorn.ruenrit@gmail.com',
           createdAt: new Date(),
           updatedAt: new Date()
         }
@@ -35,6 +35,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-    return queryInterface.bulkDelete('User', null, {});
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };

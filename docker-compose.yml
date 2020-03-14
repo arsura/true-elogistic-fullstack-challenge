@@ -1,14 +1,14 @@
-version: '3.7'
+version: "3.7"
 
 services:
   web:
     build: .
     container_name: true-elogistic-web
-    entrypoint: ['/bin/sh', './entrypoint.sh']
+    entrypoint: ["./wait-for-it.sh", "db:5432", "--timeout=5","--strict", "--", "./entrypoint.sh"]
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
-      - './src:/usr/src/app/src'
+      - "./src:/usr/src/app/src"
     networks:
       - logistic
 
@@ -18,6 +18,8 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: example
+    ports:
+      - "5432:5432"
     volumes:
       - ./src/server/db/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
