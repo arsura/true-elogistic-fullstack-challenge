@@ -1,3 +1,5 @@
+const bcrypt  = require('bcrypt');
+const jwt     = require('jsonwebtoken');
 const auth    = require('../../controller/auth');
 const models  = require('../../models');
 
@@ -20,7 +22,8 @@ describe('login', () => {
     expect(res.status).toHaveBeenCalledWith(401);
     expect(res.json).toHaveBeenCalledWith({
       status: 401,
-      success: false
+      success: false,
+      message: 'username or password is missing'
     });
   });
 
@@ -31,20 +34,50 @@ describe('login', () => {
     expect(res.status).toHaveBeenCalledWith(401);
     expect(res.json).toHaveBeenCalledWith({
       status: 401,
-      success: false
+      success: false,
+      message: 'username or password is missing'
     });
   });
 
   test('should 401 when username is incorrect', async () => {
     const req = mockRequest({ username: 'siwakorn.ruenrit@gmail.com', password: '123456789' });
     const res = mockResponse();
-
-    const spy = jest.spyOn(auth.login, 'models.User.findOne').mockResolvedValue(null)
+    models.User.findOne = jest.fn().mockReturnValue(null);
     await auth.login(req, res);
     expect(res.status).toHaveBeenCalledWith(401);
     expect(res.json).toHaveBeenCalledWith({
       status: 401,
-      success: false
+      success: false,
+      message: "incorrect username or password"
+    });
+  });
+
+  test('should 401 when password is incorrect', async () => {
+    const req = mockRequest({ username: 'siwakorn.ruenrit@gmail.com', password: '123456789' });
+    const res = mockResponse();
+    models.User.findOne = jest.fn().mockReturnValue('siwakorn');
+    bcrypt.compare = jest.fn().mockReturnValue(false);
+    await auth.login(req, res);
+    expect(res.status).toHaveBeenCalledWith(401);
+    expect(res.json).toHaveBeenCalledWith({
+      status: 401,
+      success: false,
+      message: "incorrect username or password"
+    });
+  });
+
+  test('should 200 when username and password is correct', async () => {
+    const req = mockRequest({ username: 'siwakorn.ruenrit@gmail.com', password: '123456789' });
+    const res = mockResponse();
+    models.User.findOne = jest.fn().mockReturnValue('siwakorn');
+    bcrypt.compare = jest.fn().mockReturnValue(true);
+    jwt.sign = jest.fn().mockReturnValue('sometoken');
+    await auth.login(req, res);
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith({
+      status: 200,
+      success: true,
+      token: "sometoken"
     });
   });
 });

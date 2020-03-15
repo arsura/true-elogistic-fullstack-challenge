@@ -1,7 +1,7 @@
-const models  = require('../models/index');
-const config  = require('../config');
 const bcrypt  = require('bcrypt');
 const jwt     = require('jsonwebtoken');
+const models  = require('../models/index');
+const config  = require('../config');
 
 /**
  * @param {Express.Request}   req
@@ -15,7 +15,8 @@ async function login(req, res) {
   if (username === undefined || password === undefined) {
     return res.status(401).json({
       status: 401,
-      success: false
+      success: false,
+      message: 'username or password is missing'
     });
   }
 

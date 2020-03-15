@@ -1,5 +1,5 @@
-const models = require('../models/index');
 const bcrypt = require('bcrypt');
+const models = require('../models/index');
 
 /**
  * @param {Express.Request}   req
