@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const models = require('../models/index');
+const models = require('../models');
 
 /**
  * @param {Express.Request}   req
@@ -28,7 +28,7 @@ async function create(req, res) {
   }
 
   res.status(201).json({
-    status: 200,
+    status: 201,
     success: true,
     data: user
   });
