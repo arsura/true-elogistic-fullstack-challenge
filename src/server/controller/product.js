@@ -10,6 +10,7 @@ async function find(req, res) {
   const product = await models.Product.findOne({ where: { id: _id } });
   res.status(200).json({
     status: 200,
+    success: true,
     data: product
   });
 }
@@ -22,6 +23,7 @@ async function findAll(req, res) {
   const products = await models.Product.findAll({});
   res.status(200).json({
     status: 200,
+    success: true,
     data: products
   });
 }
@@ -42,15 +44,16 @@ async function create(req, res) {
       description: product.description
     });
   } catch (e) {
-    const _errors = e.errors[0];
     return res.status(400).json({
       status: 400,
-      error: `${_errors.path} cannot be null`
+      success: false,
+      error: e
     });
   }
 
   res.status(201).json({
-    status: 201
+    status: 201,
+    success: true
   });
 }
 
@@ -68,6 +71,7 @@ async function update(req, res) {
   if (product.id === undefined) {
     return res.status(400).json({
       status: 400,
+      success: false,
       error: 'id cannot be undefined'
     });
   }
@@ -83,12 +87,14 @@ async function update(req, res) {
     );
   } catch (e) {
     return res.status(400).json({
-      status: 400
+      status: 400,
+      success: false
     });
   }
 
   res.status(204).json({
-    status: 204
+    status: 204,
+    success: true
   });
 }
 
@@ -103,12 +109,14 @@ async function remove(req, res) {
     await models.Product.destroy({ where: { id: _id } });
   } catch (e) {
     return res.status(400).json({
-      status: 400
+      status: 400,
+      success: false
     });
   }
 
   res.status(204).json({
-    status: 204
+    status: 204,
+    success: true
   });
 }
 

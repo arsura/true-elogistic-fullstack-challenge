@@ -8,13 +8,6 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-# RUN apk add --no-cache --virtual .gyp \
-#     python \
-#     make \
-#     g++ \
-#     && npm install \
-#     && apk del .gyp
-
 RUN apk add --no-cache bash && yarn install
 
 # If you are building your code for production
