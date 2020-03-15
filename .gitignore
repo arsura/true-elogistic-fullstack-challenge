@@ -87,10 +87,6 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-# mongodb
-mongodb/
-backup/
-
 # Build dir
 dist
 

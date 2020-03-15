@@ -1,14 +1,14 @@
 module.exports = {
   development: {
-    username: 'postgres',
-    password: 'example',
+    username: 'admin',
+    password: 'secret',
     database: 'elogistic',
     host: 'true-elogistic-db',
     dialect: 'postgres'
   },
   production: {
-    username: 'root',
-    password: null,
+    username: 'admin',
+    password: 'secret',
     database: 'elogistic',
     host: 'true-elogistic-db',
     dialect: 'postgres'

@@ -1,12 +1,12 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const path = require('path');
-const router = require('./router');
+const express     = require('express');
+const bodyParser  = require('body-parser');
+const cors        = require('cors');
+const path        = require('path');
+const router      = require('./router');
 
-const port = process.env.SERVER_PORT || 8080;
+const port  = process.env.SERVER_PORT || 8080;
+const app   = express();
 
-const app = express();
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());

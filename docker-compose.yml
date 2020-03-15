@@ -25,13 +25,14 @@ services:
     container_name: true-elogistic-db
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
     ports:
       - "5432:5432"
     volumes:
       - ./src/server/db/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - elogistic
+      - elogistic  
 
 networks:
   elogistic:
