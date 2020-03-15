@@ -1,5 +1,10 @@
 const models = require('../models/index');
 
+/**
+ * @param {Express.Request}   req
+ * @param {Express.Response}  res
+ * @param {number}            req.params.id - product id
+ */
 async function find(req, res) {
   const _id = req.params.id;
   const product = await models.Product.findOne({ where: { id: _id } });
@@ -9,6 +14,10 @@ async function find(req, res) {
   });
 }
 
+/**
+ * @param {Express.Request}   req
+ * @param {Express.Response}  res
+ */
 async function findAll(req, res) {
   const products = await models.Product.findAll({});
   res.status(200).json({
@@ -17,6 +26,13 @@ async function findAll(req, res) {
   });
 }
 
+/**
+ * @param {Express.Request}   req
+ * @param {Express.Response}  res
+ * @param {string}            req.body.name         - product name
+ * @param {number}            req.body.price        - product price
+ * @param {string}            req.body.description  - product description
+ */
 async function create(req, res) {
   const product = req.body;
   try {
@@ -38,6 +54,14 @@ async function create(req, res) {
   });
 }
 
+/**
+ * @param {Express.Request}   req
+ * @param {Express.Response}  res
+ * @param {number}            req.body.id           - product id
+ * @param {string}            req.body.name         - product name
+ * @param {number}            req.body.price        - product price
+ * @param {string}            req.body.description  - product description
+ */
 async function update(req, res) {
   const product = req.body;
 
@@ -68,6 +92,11 @@ async function update(req, res) {
   });
 }
 
+/**
+ * @param {Express.Request}   req
+ * @param {Express.Response}  res
+ * @param {number}            req.params.id - product id
+ */
 async function remove(req, res) {
   const _id = req.params.id;
   try {
@@ -77,7 +106,7 @@ async function remove(req, res) {
       status: 400
     });
   }
-  
+
   res.status(204).json({
     status: 204
   });
