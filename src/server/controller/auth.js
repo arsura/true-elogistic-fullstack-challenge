@@ -1,6 +1,6 @@
-const models = require('../models/index');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const models  = require('../models/index');
+const bcrypt  = require('bcrypt');
+const jwt     = require('jsonwebtoken');
 
 /**
  * @param {Express.Request}   req
