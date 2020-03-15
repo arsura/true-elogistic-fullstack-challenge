@@ -13,6 +13,12 @@ services:
         "--",
         "./entrypoint.sh",
       ]
+    environment:
+      DB_USER: admin
+      DB_PASSWORD: secret
+      DB_HOST: true-elogistic-db
+      DB_NAME: elogistic
+      SERVER_PORT: 8080
     ports:
       - "3000:3000"
     volumes:
