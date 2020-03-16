@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const requiredAuth = require('../../middleware/requiredAuth');
+const jwt           = require('jsonwebtoken');
+const requiredAuth  = require('../../middleware/requiredAuth');
 
 const mockRequest = headers => ({
   headers
