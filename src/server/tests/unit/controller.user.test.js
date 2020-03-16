@@ -38,7 +38,7 @@ describe('create user', () => {
     });
   });
 
-  test('should 400 when created failed', async () => {
+  test('should 400 when create failed', async () => {
     const mockUser = {
       firstName: 'siwakorn',
       lastName: 'ruenrit',
@@ -60,7 +60,7 @@ describe('create user', () => {
     });
   });
 
-  test('should 201 when created successfully', async () => {
+  test('should 201 when create success', async () => {
     const mockUser = {
       firstName: 'siwakorn',
       lastName: 'ruenrit',
