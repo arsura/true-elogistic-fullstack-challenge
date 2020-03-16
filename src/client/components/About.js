@@ -4,7 +4,7 @@ export default function() {
   return (
     <Fragment>
       <h1>About</h1>
-      <p>nothin about me</p>
+      <p>nothin about me</p>  
     </Fragment>
   );
 }

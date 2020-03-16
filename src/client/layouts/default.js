@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { InboxOutlined } from '@ant-design/icons';
+import PropTypes from 'prop-types';
 import './default.css';
 
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 
-export default function(props) {
+function DefaultLayout(props) {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -25,10 +25,7 @@ export default function(props) {
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} />
-        <Content style={{ margin: '0 16px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Product</Breadcrumb.Item>
-          </Breadcrumb>
+        <Content style={{ margin: '16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             {props.children}
           </div>
@@ -38,3 +35,9 @@ export default function(props) {
     </Layout>
   );
 }
+
+DefaultLayout.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
+export default DefaultLayout;
