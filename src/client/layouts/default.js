@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import { InboxOutlined } from '@ant-design/icons';
+import { InboxOutlined, UserOutlined, CaretDownOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import './default.css';
 
@@ -24,13 +24,19 @@ function DefaultLayout(props) {
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
-        <Content style={{ margin: '16px' }}>
+        <Header className="site-layout-background" style={{ padding: 0 }}>
+          <span style={{ paddingRight: 16, float: 'right' }}>
+            <Avatar size="large" icon={<UserOutlined />} style={{ marginRight: 8 }} /> 
+            <b>Siwakorn</b>
+            <CaretDownOutlined />
+          </span>
+        </Header>
+        <Content style={{ margin: 16 }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             {props.children}
           </div>
         </Content>
-        <Footer className="footer">Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer className="footer">True e-Logistic Full-Stack Challange</Footer>
       </Layout>
     </Layout>
   );

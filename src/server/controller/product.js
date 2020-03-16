@@ -20,7 +20,7 @@ async function find(req, res) {
  * @param {Express.Response}  res
  */
 async function findAll(req, res) {
-  const products = await models.Product.findAll({});
+  const products = await models.Product.findAll({ order: [['id']] });
   res.status(200).json({
     status: 200,
     success: true,

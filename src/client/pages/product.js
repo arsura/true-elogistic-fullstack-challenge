@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DefaultLayout from '../layouts/default';
 import ProductTable from '../components/ProductTable';
-import { ProductCreationModal } from '../components/ProductActions';
+import { ProductCreationModalForm } from '../components/ProductActions';
 
 export default function() {
   const [products, setProducts] = useState([]);
@@ -16,10 +16,25 @@ export default function() {
     setProducts(products.data.data);
   }
 
+  async function addProduct(product) {
+    await axios.post('/api/product', product);
+    getProducts();
+  }
+
+  async function updateProduct(product) {
+    await axios.put('/api/product', product);
+    getProducts();
+  }
+
+  async function removeProduct(id) {
+    await axios.delete(`/api/product/${id}`);
+    getProducts();
+  }
+
   return (
     <DefaultLayout>
-      <ProductCreationModal />
-      <ProductTable data={products} />
+      <ProductCreationModalForm addProduct={addProduct} />
+      <ProductTable data={products} removeProduct={removeProduct} updateProduct={updateProduct} />
     </DefaultLayout>
   );
 }

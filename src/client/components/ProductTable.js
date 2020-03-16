@@ -1,23 +1,37 @@
 import React from 'react';
 import { Table, Button } from 'antd';
 import PropTypes from 'prop-types';
+import { ProductUpdateModalForm } from './ProductActions';
 
 const { Column } = Table;
 
 function ProductTable(props) {
   return (
     <Table rowKey="id" dataSource={props.data}>
-      <Column title="ID" dataIndex="id" key="id" />
-      <Column title="Name" dataIndex="name" key="name" />
-      <Column title="Price" dataIndex="price" key="price" />
-      <Column title="Description" dataIndex="description" key="description" />
+      <Column title="ID" dataIndex="id" key="id" width={'5%'} />
+      <Column title="Name" dataIndex="name" key="name" width={'30%'} />
+      <Column
+        title="Price"
+        dataIndex="price"
+        key="price"
+        width={'10%'}
+        render={price => <span>{price.toLocaleString()}</span>}
+      />
+      <Column title="Description" dataIndex="description" key="description" width={'40%'} />
       <Column
         title=""
         key="action"
-        render={(text, record) => (
+        width={'15%'}
+        render={(_, record) => (
           <span>
-            <Button style={{ marginRight: 8 }}>Edit {record.lastName}</Button>
-            <Button type="danger">Delete</Button>
+            <ProductUpdateModalForm updateProduct={props.updateProduct} data={record} />
+            <Button
+              style={{ marginRight: 8, marginBottom: 8, minWidth: 70 }}
+              type="danger"
+              onClick={async () => await props.removeProduct(record.id)}
+            >
+              Delete
+            </Button>
           </span>
         )}
       />
@@ -33,7 +47,9 @@ ProductTable.propTypes = {
       price: PropTypes.number.isRequired,
       description: PropTypes.string
     })
-  ).isRequired
+  ).isRequired,
+  removeProduct: PropTypes.func.isRequired,
+  updateProduct: PropTypes.func.isRequired
 };
 
 export default ProductTable;
