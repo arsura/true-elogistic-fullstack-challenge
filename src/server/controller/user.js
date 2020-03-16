@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const models = require('../models');
+const schema = require('../schema/controller.user');
 
 /**
  * @param {Express.Request}   req
@@ -12,6 +13,7 @@ const models = require('../models');
 async function create(req, res) {
   const user = req.body;
   try {
+    await schema.create.validateAsync(user);
     const hash = await bcrypt.hash(user.password, 10);
     await models.User.create({
       firstName: user.firstName,

@@ -33,6 +33,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "antd": "^4.0.2",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
