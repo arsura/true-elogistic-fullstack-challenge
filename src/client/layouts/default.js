@@ -7,6 +7,7 @@ import {
   CaretDownOutlined
 } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
+import { push } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import setToken from '../helpers/setToken';
 import * as auth from '../redux/actions/auth';
@@ -21,7 +22,9 @@ function DefaultLayout(props) {
 
   function logout() {
     setToken(false);
+    localStorage.removeItem('token');
     dispatch(auth.setCurrentUser({}));
+    dispatch(push('/'));
   }
 
   return (

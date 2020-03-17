@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
+import { Link } from 'react-router-dom';
 import { Form, Input, Button, Typography, message } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 import * as auth from '../redux/actions/auth';
 import setToken from '../helpers/setToken';
 
@@ -19,6 +21,13 @@ const tailLayout = {
 
 export default function() {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(push('/'));
+    }
+  }, []);
 
   async function onFinish(values) {
     await login(values);
@@ -28,6 +37,7 @@ export default function() {
     try {
       const res = await axios.post('/api/auth', account);
       const user = jwtDecode(res.data.token);
+      localStorage.setItem('token', res.data.token);
       setToken(res.data.token);
       dispatch(auth.loginSucceeded(user));
       dispatch(push('/'));
@@ -40,7 +50,7 @@ export default function() {
   return (
     <div className="container--center">
       <div>
-        <Title style={{ textAlign: 'center' }}>Login</Title>
+        <Title style={{ textAlign: 'center' }}>Login🍻</Title>
         <Form
           {...layout}
           name="basic"
@@ -69,6 +79,11 @@ export default function() {
             </Button>
           </Form.Item>
         </Form>
+        <div style={{ textAlign: 'center' }}>
+          <Link to="/">
+            <HomeOutlined /> Back to Home
+          </Link>
+        </div>
       </div>
     </div>
   );
