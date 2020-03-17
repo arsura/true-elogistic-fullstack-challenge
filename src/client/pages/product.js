@@ -34,7 +34,11 @@ export default function() {
   return (
     <DefaultLayout>
       <ProductCreationModalForm addProduct={addProduct} />
-      <ProductTable data={products} removeProduct={removeProduct} updateProduct={updateProduct} />
+      <ProductTable
+        data={products}
+        removeProduct={removeProduct}
+        updateProduct={updateProduct}
+      />
     </DefaultLayout>
   );
 }

@@ -28,10 +28,21 @@ function ProductCreationModalForm(props) {
 
   return (
     <Fragment>
-      <Button type="primary" icon={<PlusOutlined />} onClick={() => setVisible(true)} style={{ marginBottom: 16 }}>
+      <Button
+        type="primary"
+        icon={<PlusOutlined />}
+        onClick={() => setVisible(true)}
+        style={{ marginBottom: 16 }}
+      >
         Add Product
       </Button>
-      <Modal title="Add Product" visible={visible} onCancel={() => setVisible(false)} footer={null} closable={true}>
+      <Modal
+        title="Add Product"
+        visible={visible}
+        onCancel={() => setVisible(false)}
+        footer={null}
+        closable={true}
+      >
         <Form {...layout} onFinish={onFinish}>
           <Form.Item
             label="Name"
@@ -87,12 +98,24 @@ function ProductUpdateModalForm(props) {
 
   return (
     <Fragment>
-      <Button type="default" onClick={() => setVisible(true)} style={{ marginRight: 8, marginBottom: 8, minWidth: 70 }}>
+      <Button
+        type="default"
+        onClick={() => setVisible(true)}
+        style={{ marginRight: 8, marginBottom: 8, minWidth: 70 }}
+      >
         Edit
       </Button>
-      <Modal title="Edit" visible={visible} onCancel={() => setVisible(false)} footer={null} closable={true}>
+      <Modal
+        title="Edit"
+        visible={visible}
+        onCancel={() => setVisible(false)}
+        footer={null}
+        closable={true}
+      >
         <Form {...layout} onFinish={onFinish} initialValues={props.data}>
-          <Form.Item label="ID" name="id" required><Input disabled/></Form.Item>
+          <Form.Item label="ID" name="id" required>
+            <Input disabled />
+          </Form.Item>
           <Form.Item
             label="Name"
             name="name"
@@ -119,7 +142,7 @@ function ProductUpdateModalForm(props) {
           </Form.Item>
 
           <Form.Item label="Description" name="description">
-            <TextArea autoSize/>
+            <TextArea autoSize />
           </Form.Item>
 
           <Form.Item {...tailLayout}>

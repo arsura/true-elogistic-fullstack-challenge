@@ -17,14 +17,22 @@ function ProductTable(props) {
         width={'10%'}
         render={price => <span>{price.toLocaleString()}</span>}
       />
-      <Column title="Description" dataIndex="description" key="description" width={'40%'} />
+      <Column
+        title="Description"
+        dataIndex="description"
+        key="description"
+        width={'40%'}
+      />
       <Column
         title=""
         key="action"
         width={'15%'}
         render={(_, record) => (
           <span>
-            <ProductUpdateModalForm updateProduct={props.updateProduct} data={record} />
+            <ProductUpdateModalForm
+              updateProduct={props.updateProduct}
+              data={record}
+            />
             <Button
               style={{ marginRight: 8, marginBottom: 8, minWidth: 70 }}
               type="danger"
