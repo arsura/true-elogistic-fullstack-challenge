@@ -7,15 +7,15 @@ const TextArea = Input.TextArea;
 
 const layout = {
   labelCol: {
-    span: 4
+    span: 6
   },
   wrapperCol: {
-    span: 20
+    span: 18
   }
 };
 
 const tailLayout = {
-  wrapperCol: { xs: { span: 24, offset: 0 }, sm: { span: 20, offset: 4 } }
+  wrapperCol: { xs: { span: 24, offset: 0 }, sm: { span: 18, offset: 6 } }
 };
 
 function ProductCreationModalForm(props) {

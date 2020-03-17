@@ -1,11 +1,11 @@
 .logo {
-  height: 32px;
+  height: 3.6rem;
   background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
+  margin: 1.4rem;
 }
 
 .content {
-  margin: 0 16px;
+  margin: 1.4rem;
 }
 
 .footer {
@@ -13,9 +13,9 @@
 }
 
 #components-layout-demo-side .logo {
-  height: 32px;
+  height: 3.2rem;
   background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
+  margin: 1.6rem;
 }
 
 .site-layout .site-layout-background {

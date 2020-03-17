@@ -45,7 +45,7 @@ function DefaultLayout(props) {
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
-          <span style={{ paddingRight: 16, float: 'right' }}>
+          <span style={{ paddingRight: '1.8em', float: 'right' }}>
             <Avatar
               size="large"
               icon={<UserOutlined />}
@@ -68,7 +68,7 @@ function DefaultLayout(props) {
             </Dropdown>
           </span>
         </Header>
-        <Content style={{ margin: 16 }}>
+        <Content className="content">
           <div
             className="site-layout-background"
             style={{ padding: 24, minHeight: 360 }}
