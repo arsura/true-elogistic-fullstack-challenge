@@ -106,7 +106,7 @@ function ProductUpdateModalForm(props) {
         Edit
       </Button>
       <Modal
-        title="Edit"
+        title={`${props.data.id}: ${props.data.name}`}
         visible={visible}
         onCancel={() => setVisible(false)}
         footer={null}

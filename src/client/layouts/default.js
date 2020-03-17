@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Avatar } from 'antd';
+import { Layout, Menu, Avatar, Dropdown } from 'antd';
 import { Link } from 'react-router-dom';
 import {
   InboxOutlined,
@@ -37,10 +37,23 @@ function DefaultLayout(props) {
             <Avatar
               size="large"
               icon={<UserOutlined />}
-              style={{ marginRight: 8 }}
+              style={{ marginRight: 8, backgroundColor: '#1890ff' }}
             />
-            <b>Siwakorn</b>
-            <CaretDownOutlined />
+            <Dropdown
+              overlay={() => (
+                <Menu>
+                  <Menu.Item>
+                    <Link to="/">Logout</Link>
+                  </Menu.Item>
+                </Menu>
+              )}
+              trigger={['click']}
+            >
+              <Link to="#">
+                <b>Siwakorn</b>
+                <CaretDownOutlined />
+              </Link>
+            </Dropdown>
           </span>
         </Header>
         <Content style={{ margin: 16 }}>
