@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
 import App from './App';
-import configureStore, { history } from '../client/redux/store';
+import configureStore from '../client/redux/store';
 import setUser from './helpers/setUser';
 import setToken from './helpers/setToken';
 
@@ -13,9 +12,7 @@ setToken(localStorage.token);
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
+    <App />
   </Provider>,
   document.getElementById('root')
 );

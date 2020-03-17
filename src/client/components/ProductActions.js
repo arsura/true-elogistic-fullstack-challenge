@@ -122,7 +122,7 @@ function ProductUpdateModalForm(props) {
             rules={[
               {
                 required: true,
-                message: 'Please input product name!'
+                message: 'Please input product name'
               }
             ]}
           >
@@ -134,7 +134,7 @@ function ProductUpdateModalForm(props) {
             rules={[
               {
                 required: true,
-                message: 'Please input product price!'
+                message: 'Please input product price'
               }
             ]}
           >

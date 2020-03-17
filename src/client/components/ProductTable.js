@@ -11,11 +11,16 @@ function ProductTable(props) {
       <Column title="ID" dataIndex="id" key="id" width={'5%'} />
       <Column title="Name" dataIndex="name" key="name" width={'30%'} />
       <Column
-        title="Price"
+        title="Price (THB)"
         dataIndex="price"
         key="price"
         width={'10%'}
-        render={price => <span>{price.toLocaleString()}</span>}
+        align='right'
+        render={price => (
+          <span>
+            {price.toLocaleString('en-US', { minimumFractionDigits: 3 })}
+          </span>
+        )}
       />
       <Column
         title="Description"

@@ -13,7 +13,7 @@ module.exports = {
         },
         {
           name: 'Framus GPS Panthera II Supreme',
-          price: '70400.00 ',
+          price: '70400.00',
           description: '3A Flamed Maple top and Mahogany back',
           createdAt: new Date(),
           updatedAt: new Date()

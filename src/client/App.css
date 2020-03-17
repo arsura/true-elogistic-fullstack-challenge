@@ -1,6 +1,6 @@
 @import '~antd/dist/antd.css';
 
-.container--center {
+.container- {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
