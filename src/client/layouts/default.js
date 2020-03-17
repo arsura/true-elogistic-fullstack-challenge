@@ -6,13 +6,23 @@ import {
   UserOutlined,
   CaretDownOutlined
 } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import setToken from '../helpers/setToken';
+import * as auth from '../redux/actions/auth';
 import './default.css';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 function DefaultLayout(props) {
   const [collapsed, setCollapsed] = useState(false);
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.auth.user);
+
+  function logout() {
+    setToken(false);
+    dispatch(auth.setCurrentUser({}));
+  }
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -42,15 +52,15 @@ function DefaultLayout(props) {
             <Dropdown
               overlay={() => (
                 <Menu>
-                  <Menu.Item>
-                    <Link to="/">Logout</Link>
+                  <Menu.Item onClick={() => logout()}>
+                    <Link to="#">Logout</Link>
                   </Menu.Item>
                 </Menu>
               )}
               trigger={['click']}
             >
               <Link to="#">
-                <b>Siwakorn</b>
+                {user}
                 <CaretDownOutlined />
               </Link>
             </Dropdown>

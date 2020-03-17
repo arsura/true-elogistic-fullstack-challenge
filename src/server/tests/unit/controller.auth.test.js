@@ -48,7 +48,7 @@ describe('login', () => {
     expect(res.json).toHaveBeenCalledWith({
       status: 401,
       success: false,
-      message: "incorrect username or password"
+      message: "username or password is incorrect"
     });
   });
 
@@ -62,7 +62,7 @@ describe('login', () => {
     expect(res.json).toHaveBeenCalledWith({
       status: 401,
       success: false,
-      message: "incorrect username or password"
+      message: "username or password is incorrect"
     });
   });
 

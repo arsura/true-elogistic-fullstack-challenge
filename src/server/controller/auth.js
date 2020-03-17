@@ -26,7 +26,7 @@ async function login(req, res) {
     return res.status(401).json({
       status: 401,
       success: false,
-      message: 'incorrect username or password'
+      message: 'username or password is incorrect'
     });
   }
 
@@ -52,7 +52,7 @@ async function login(req, res) {
     return res.status(401).json({
       status: 401,
       success: false,
-      message: 'incorrect username or password'
+      message: 'username or password is incorrect'
     });
   }
 }
