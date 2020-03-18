@@ -9,21 +9,22 @@ const { Title } = Typography;
 export default function() {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   return (
-    <div className="container-">
+    <div className="container">
       <div style={{ textAlign: 'center' }}>
         <Title>
           <font color="#ec2127">True</font>
-          <font color="#0098ef"> e-Logistic</font> Full-Stack Challenge
+          <font color="#0098ef"> e-Logistic</font>
+          Full-Stack Challenge
         </Title>
         <div>
           <Link to="/product">
-            <Button className="button" type="link" icon={<InboxOutlined />}>
+            <Button type="link" icon={<InboxOutlined />}>
               Product Page
             </Button>
           </Link>
           {!isAuthenticated && (
             <Link to="/login">
-              <Button className="button" type="link" icon={<UserOutlined />}>
+              <Button type="link" icon={<UserOutlined />}>
                 Login
               </Button>
             </Link>

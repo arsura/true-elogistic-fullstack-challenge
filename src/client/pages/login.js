@@ -43,7 +43,7 @@ export default function() {
   }
 
   return (
-    <div className="container-">
+    <div className="container">
       <div>
         <Title style={{ textAlign: 'center' }}>Login🍻</Title>
         <Form {...layout} onFinish={async values => await login(values)}>
@@ -71,7 +71,9 @@ export default function() {
         </Form>
         <div style={{ textAlign: 'center' }}>
           <Link to="/">
-            <HomeOutlined /> Go Home
+            <Button type="link">
+              Go Home <HomeOutlined />
+            </Button>
           </Link>
         </div>
       </div>
