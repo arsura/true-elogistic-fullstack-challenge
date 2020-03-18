@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 services:
   web:
@@ -6,12 +6,12 @@ services:
     container_name: true-elogistic-web
     entrypoint:
       [
-        "./wait-for-it.sh",
-        "db:5432",
-        "--timeout=5",
-        "--strict",
-        "--",
-        "./entrypoint.sh",
+        './wait-for-it.sh',
+        'db:5432',
+        '--timeout=5',
+        '--strict',
+        '--',
+        './entrypoint.sh',
       ]
     environment:
       DB_USER: admin
@@ -20,9 +20,9 @@ services:
       DB_NAME: elogistic
       SERVER_PORT: 8080
     ports:
-      - "3000:3000"
+      - '8080:8080'
     volumes:
-      - "./src:/usr/src/app/src"
+      - './src:/usr/src/app/src'
     networks:
       - elogistic
 
@@ -33,12 +33,10 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: secret
-    ports:
-      - "5432:5432"
     volumes:
       - ./src/server/db/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - elogistic  
+      - elogistic
 
 networks:
   elogistic:

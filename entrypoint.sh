@@ -1,3 +1,3 @@
 yarn db:migrate
 yarn db:seed
-yarn start:dev
+yarn start:prod

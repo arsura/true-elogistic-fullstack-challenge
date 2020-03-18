@@ -52,7 +52,7 @@ export default function() {
             name="username"
             rules={[{ required: true, message: 'Please input your username' }]}
           >
-            <Input />
+            <Input placeHolder="admin@email.com" />
           </Form.Item>
 
           <Form.Item
@@ -60,7 +60,7 @@ export default function() {
             name="password"
             rules={[{ required: true, message: 'Please input your password' }]}
           >
-            <Input.Password />
+            <Input.Password placeHolder="12345678" />
           </Form.Item>
 
           <Form.Item {...tailLayout}>
