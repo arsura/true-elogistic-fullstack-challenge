@@ -12,7 +12,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import setToken from '../helpers/setToken';
 import * as auth from '../redux/actions/auth';
-import './default.css';
 
 const { Header, Content, Footer, Sider } = Layout;
 
