@@ -13,8 +13,7 @@ export default function() {
       <div style={{ textAlign: 'center' }}>
         <Title>
           <font color="#ec2127">True</font>
-          <font color="#0098ef"> e-Logistic</font>
-          Full-Stack Challenge
+          <font color="#0098ef"> e-Logistic</font> Full-Stack Challenge
         </Title>
         <div>
           <Link to="/product">
