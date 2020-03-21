@@ -70,6 +70,13 @@ describe('ProductCreationModalForm Component', () => {
       ).not.toBeNull();
     });
   });
+
+  test('just open and close modal', () => {
+    render(<ProductCreationModalForm {...props} />);
+    fireEvent.click(screen.getByText('Add Product'));
+    expect(screen.getByText('Submit')).toBeInTheDocument();
+    fireEvent.click(screen.getByLabelText('Close'));
+  });
 });
 
 describe('ProductUpdateModalForm Component', () => {
@@ -133,5 +140,12 @@ describe('ProductUpdateModalForm Component', () => {
         screen.queryAllByText('Please input product price!')
       ).not.toBeNull();
     });
+  });
+
+  test('just open and close modal', () => {
+    render(<ProductUpdateModalForm {...props} />);
+    fireEvent.click(screen.getByText('Edit'));
+    expect(screen.getByText('Submit')).toBeInTheDocument();
+    fireEvent.click(screen.getByLabelText('Close'));
   });
 });
