@@ -21,8 +21,8 @@ const tailLayout = {
 function ProductCreationModalForm(props) {
   const [visible, setVisible] = useState(false);
 
-  async function onFinish(values) {
-    await props.addProduct(values);
+  function onFinish(values) {
+    props.addProduct(values);
     setVisible(false);
   }
 
@@ -91,8 +91,8 @@ ProductCreationModalForm.propTypes = {
 function ProductUpdateModalForm(props) {
   const [visible, setVisible] = useState(false);
 
-  async function onFinish(values) {
-    await props.updateProduct(values);
+  function onFinish(values) {
+    props.updateProduct(values);
     setVisible(false);
   }
 
